@@ -1,6 +1,7 @@
 package org.example;
 
-public class Cat extends Animal{
+public class Cat extends Animal {
+
     String name;
     static int countCat = 0;
 
@@ -27,4 +28,21 @@ public class Cat extends Animal{
     static int getCountCat() {
         return countCat;
     }
+
+    private boolean hungry = true;
+
+    public void eat(Bowl bowl) {
+        if (hungry && bowl.getFood() >= 15) {
+            bowl.eatFoodFromBowl(15);
+            hungry = false;
+            System.out.println("Котик " + name + " покушал");
+        } else {
+            System.out.println("Котик " + name + " не стал кушать");
+        }
+    }
+
+    public boolean isSatiety() {
+        return hungry;
+    }
+
 }
